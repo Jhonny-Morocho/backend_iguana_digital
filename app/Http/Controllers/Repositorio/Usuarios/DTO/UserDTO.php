@@ -1,7 +1,6 @@
 <?php
 
-namespace App\DTO;
-
+namespace App\Http\Controllers\Repositorio\Usuarios\DTO;
 class UserDTO
 {
     public $departamento_id;

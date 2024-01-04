@@ -5,10 +5,10 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Repositorio\Usuarios\DTO\UserDTO;
 use App\Models\User;
-class CrearUsuario {
+class EditarUsuario {
     
 
-  public static  function registrarUsuario(Request $request) {
+  public static  function editarUsuario(Request $request) {
 
     try {
         $validator=RepositorioUsuario::validarUsuario($request);
@@ -27,7 +27,7 @@ class CrearUsuario {
         if(!$createOperacion){
             throw new \Exception("Registro de Operacion no creado");
         }
-        return response()->json(["data"=> $createOperacion,"success"=>True,"message"=>"Registro exitoso"],201);
+        return response()->json(["data"=> $createOperacion,"success"=>True,"message"=>"Registro actualizado"],200);
     } catch (\Throwable $th) {
   
         return response()->json(["succes"=>false,"message"=>$th->getMessage(),"data"=>null],404);

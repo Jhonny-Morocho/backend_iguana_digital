@@ -27,7 +27,7 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return Repositorio\Usuarios\ListarUsuarios::obtenerUsuarioPorId($id);
     }
 
     /**

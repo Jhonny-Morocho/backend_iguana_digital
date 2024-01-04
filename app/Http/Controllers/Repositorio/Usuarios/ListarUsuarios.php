@@ -17,9 +17,9 @@ class ListarUsuarios {
    try {
         $registro = User::where('id',$id)->first();
         if($registro){
-            return response()->json(["data"=> $registro,"success"=>True,"message"=>"Registro encontrado"],200);
+          return response()->json(["data"=> $registro,"success"=>True,"message"=>"Registro encontrado"],200);
         }
-        return response()->json(["data"=> $registro,"success"=>False,"message"=>"Registro no encontrado"],404);
+        throw new \Exception('Registro de usuario con el '.$id.' no encontrado');
     } catch (\Throwable $th) {
         return response()->json(["success"=>false,"message"=>$th->getMessage(),"data"=>null],404);
     }
