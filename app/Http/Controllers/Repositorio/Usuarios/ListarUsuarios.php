@@ -6,7 +6,7 @@ class ListarUsuarios {
 
   public static  function listarTodos() {
     try {
-        $registros = User::orderBy('id','desc')->get();
+        $registros = User::with('departamento')->orderBy('id','desc')->get();
         return response()->json(["data"=> $registros,"succes"=>True,"message"=>"Listado de usuarios"],200);
     } catch (\Throwable $th) {
         return response()->json(["succes"=>false,"message"=>$th->getMessage(),"data"=>null],404);
