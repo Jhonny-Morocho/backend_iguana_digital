@@ -15,7 +15,7 @@ class RepositorioUsuario {
             'apellido' => 'required|string|max:255',
             'usuario' => 'required|string|unique:users,usuario',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|string|min:6',
+            #'password' => 'required|string|min:6',
         ]);
 
         $validator->setAttributeNames([
@@ -28,8 +28,8 @@ class RepositorioUsuario {
             'email.required' => 'El campo de correo electrónico es obligatorio.',
             'email.email' => 'El correo electrónico no es válido.',
             'email.unique' => 'El correo electrónico ya está en uso.',
-            'password.required' => 'El campo de contraseña es obligatorio.',
-            'password.min' => 'La contraseña debe tener al menos :min caracteres.',
+            #'password.required' => 'El campo de contraseña es obligatorio.',
+            #'password.min' => 'La contraseña debe tener al menos :min caracteres.',
         ]);
         $validator->setCustomMessages([
             'departamento_id.required' => 'El campo de departamento es obligatorio.',
@@ -41,8 +41,8 @@ class RepositorioUsuario {
             'email.required' => 'El campo de correo electrónico es obligatorio.',
             'email.email' => 'El correo electrónico no es válido.',
             'email.unique' => 'El correo electrónico ya está en uso.',
-            'password.required' => 'El campo de contraseña es obligatorio.',
-            'password.min' => 'La contraseña debe tener al menos :min caracteres.',
+            #'password.required' => 'El campo de contraseña es obligatorio.',
+            #'password.min' => 'La contraseña debe tener al menos :min caracteres.',
         ]);
         return $validator;
     }
@@ -54,7 +54,7 @@ class RepositorioUsuario {
             'apellido' => 'required|string|max:255',
             'usuario' => 'required|string|unique:users,usuario,' . $userId,
             'email' => 'required|email|unique:users,email,' . $userId,
-            'password' => 'required|string|min:6',
+            #'password' => 'required|string|min:6',
         ]);
 
         $validator->setAttributeNames([
@@ -67,8 +67,8 @@ class RepositorioUsuario {
             'email.required' => 'El campo de correo electrónico es obligatorio.',
             'email.email' => 'El correo electrónico no es válido.',
             'email.unique' => 'El correo electrónico ya está en uso.',
-            'password.required' => 'El campo de contraseña es obligatorio.',
-            'password.min' => 'La contraseña debe tener al menos :min caracteres.',
+            #'password.required' => 'El campo de contraseña es obligatorio.',
+            #'password.min' => 'La contraseña debe tener al menos :min caracteres.',
         ]);
         $validator->setCustomMessages([
             'departamento_id.required' => 'El campo de departamento es obligatorio.',
@@ -80,8 +80,8 @@ class RepositorioUsuario {
             'email.required' => 'El campo de correo electrónico es obligatorio.',
             'email.email' => 'El correo electrónico no es válido.',
             'email.unique' => 'El correo electrónico ya está en uso.',
-            'password.required' => 'El campo de contraseña es obligatorio.',
-            'password.min' => 'La contraseña debe tener al menos :min caracteres.',
+            #'password.required' => 'El campo de contraseña es obligatorio.',
+            #'password.min' => 'La contraseña debe tener al menos :min caracteres.',
         ]);
         return $validator;
     }

@@ -8,7 +8,7 @@ class UserDTO
     public $apellido;
     public $usuario;
     public $email;
-    public $password;
+    #public $password;
 
     public function __construct($data)
     {
@@ -17,6 +17,6 @@ class UserDTO
         $this->apellido = $data['apellido'] ?? null;
         $this->usuario = $data['usuario'] ?? null;
         $this->email = $data['email'] ?? null;
-        $this->password = $data['password'] ?? null;
+        #$this->password = $data['password'] ?? null;
     }
 }

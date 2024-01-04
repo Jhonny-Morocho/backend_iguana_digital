@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DepartamentosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +26,8 @@ Route::controller(UserController::class)->group(function () {
     Route::get('users/{id}', 'show')->where('id', '[0-9]+');
     Route::put('users/{id}', 'update')->where('id', '[0-9]+');
     Route::delete('users/{id}', 'destroy')->where('id', '[0-9]+');
+});
+Route::controller(DepartamentosController::class)->group(function () {
+    Route::get('departaments', 'index');
+    Route::get('departaments/{id}', 'show')->where('id', '[0-9]+');
 });

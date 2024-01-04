@@ -21,8 +21,7 @@ class CrearUsuario {
             'nombre' => $userDTO->nombre,
             'apellido' => $userDTO->apellido,
             'usuario' => $userDTO->usuario,
-            'email' => $userDTO->email,
-            'password' => bcrypt($userDTO->password),
+            'email' => $userDTO->email
         ]);
         if(!$createOperacion){
             throw new \Exception("Registro de Operacion no creado");
