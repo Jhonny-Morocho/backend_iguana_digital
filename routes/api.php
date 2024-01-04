@@ -22,7 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::controller(UserController::class)->group(function () {
     Route::get('users', 'index');
     Route::post('users', 'store');
-    Route::get('users/{id}', 'show');
-    Route::put('users/{id}', 'update');
-    Route::delete('users/{id}', 'index');
+    Route::get('users/{id}', 'show')->where('id', '[0-9]+');
+    Route::put('users/{id}', 'update')->where('id', '[0-9]+');
+    Route::delete('users/{id}', 'destroy')->where('id', '[0-9]+');
 });

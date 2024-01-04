@@ -25,7 +25,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(int $id)
     {
         return Repositorio\Usuarios\ListarUsuarios::obtenerUsuarioPorId($id);
     }
@@ -33,7 +33,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, int $id)
     {
         return Repositorio\Usuarios\EditarUsuario::editarUsuario($request,$id);
     }
@@ -41,8 +41,8 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(int $id)
     {
-        //
+        return Repositorio\Usuarios\EliminarUsuario::eliminarPorId($id);
     }
 }
