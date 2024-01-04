@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Departament;
+use App\Models\Departamento;
 class DepartamentoTablaSeeder extends Seeder
 {
     /**
@@ -12,15 +12,15 @@ class DepartamentoTablaSeeder extends Seeder
      */
     public function run(): void
     {
-        Departament::create([
+        Departamento::create([
             'nombre' => 'Tecnologias de la informacion',
         ]);
         
-        Departament::create([
+        Departamento::create([
             'nombre' => 'Legal',
         ]);
 
-        Departament::create([
+        Departamento::create([
             'nombre' => 'Seguridad',
         ]);
     }

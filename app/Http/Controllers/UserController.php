@@ -19,7 +19,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Repositorio\Usuarios\CrearUsuario::registrarUsuario($request);
     }
 
     /**
