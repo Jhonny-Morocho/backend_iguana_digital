@@ -11,7 +11,7 @@ class CrearUsuario {
   public static  function registrarUsuario(Request $request) {
 
     try {
-        $validator=RepositorioUsuario::validarUsuario($request);
+        $validator=RepositorioUsuario::validarUsuarioModoCreate($request);
         if(!($validator->passes())){
             return response()->json(["success"=>false,"message"=>'Los datos ingresados no son correctos',"data"=>$validator->errors()],404);
         }

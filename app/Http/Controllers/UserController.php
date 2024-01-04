@@ -35,7 +35,7 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        return Repositorio\Usuarios\EditarUsuario::editarUsuario($request,$id);
     }
 
     /**

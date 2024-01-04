@@ -1,33 +1,29 @@
 <?php
 namespace App\Http\Controllers\Repositorio\Usuarios;
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Repositorio\Usuarios\DTO\UserDTO;
 use App\Models\User;
 class EditarUsuario {
     
 
-  public static  function editarUsuario(Request $request) {
+  public static  function editarUsuario(Request $request,$id) {
 
     try {
-        $validator=RepositorioUsuario::validarUsuario($request);
+        $usuarioEncontrado = User::find($id);
+        if(!$usuarioEncontrado){
+            throw new \Exception("El usuario con el id ".$id." no existe");
+        }
+
+        $validator=RepositorioUsuario::validarUsuarioModoUpdate($request,$id);
         if(!($validator->passes())){
             return response()->json(["success"=>false,"message"=>'Los datos ingresados no son correctos',"data"=>$validator->errors()],404);
         }
         $userDTO = new UserDTO($request->all());
-        $createOperacion= User::create([
-            'departamento_id' => $userDTO->departamento_id,
-            'nombre' => $userDTO->nombre,
-            'apellido' => $userDTO->apellido,
-            'usuario' => $userDTO->usuario,
-            'email' => $userDTO->email,
-            'password' => bcrypt($userDTO->password),
-        ]);
-        if(!$createOperacion){
-            throw new \Exception("Registro de Operacion no creado");
+        $usuarioEncontrado->update((array) $userDTO);
+        if(!$usuarioEncontrado->wasChanged()){
+            throw new \Exception("Usuario no actulizado");
         }
-        return response()->json(["data"=> $createOperacion,"success"=>True,"message"=>"Registro actualizado"],200);
+        return response()->json(["data"=> $usuarioEncontrado,"success"=>True,"message"=>"Registro actualizado"],200);
     } catch (\Throwable $th) {
   
         return response()->json(["succes"=>false,"message"=>$th->getMessage(),"data"=>null],404);

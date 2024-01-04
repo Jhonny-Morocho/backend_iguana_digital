@@ -23,6 +23,6 @@ Route::controller(UserController::class)->group(function () {
     Route::get('users', 'index');
     Route::post('users', 'store');
     Route::get('users/{id}', 'show');
-    Route::put('users/{id}', 'index');
+    Route::put('users/{id}', 'update');
     Route::delete('users/{id}', 'index');
 });
