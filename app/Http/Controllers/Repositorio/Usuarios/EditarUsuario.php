@@ -21,7 +21,7 @@ class EditarUsuario {
         $userDTO = new UserDTO($request->all());
         $usuarioEncontrado->update((array) $userDTO);
         if(!$usuarioEncontrado->wasChanged()){
-            throw new \Exception("Usuario no actulizado");
+            throw new \Exception("No se puede actualizar el usuario");
         }
         return response()->json(["data"=> $usuarioEncontrado,"success"=>True,"message"=>"Registro actualizado"],200);
     } catch (\Throwable $th) {

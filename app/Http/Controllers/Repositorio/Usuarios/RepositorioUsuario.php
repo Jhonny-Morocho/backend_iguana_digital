@@ -53,7 +53,7 @@ class RepositorioUsuario {
             'nombre' => 'required|string|max:255',
             'apellido' => 'required|string|max:255',
             'usuario' => 'required|string|unique:users,usuario,' . $userId,
-            'email' => 'required|email|unique:users,email,' . $userId,
+            'email' => 'required|email|unique:users,email,' . $userId
             #'password' => 'required|string|min:6',
         ]);
 
